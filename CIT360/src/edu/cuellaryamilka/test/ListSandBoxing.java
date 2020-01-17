@@ -28,6 +28,8 @@ public class ListSandBoxing {
 				names.add("Claudia");
 				
 				// Displaying ArrayList
+				// Elements appear in the order you enter them. 
+				// ArrayList can contain duplicates.
 				System.out.println("1- This is the list names: "+names);
 				
 				// Adding Analia element in the list at the index number 2		
