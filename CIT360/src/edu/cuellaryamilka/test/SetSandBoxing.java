@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class SetSandBoxing {
 
@@ -53,8 +54,6 @@ public class SetSandBoxing {
 		numbers.add(2018);
 		numbers.add(2020);
 		
-		
-		
 		years.addAll(numbers);
 		System.out.println("3- List years after adding ArrayList numbers: "+years);
 		
@@ -87,9 +86,41 @@ public class SetSandBoxing {
 		years.retainAll(numbers); // numbers remain 
 		System.out.println("8-HashSet after retainAll() operation: "+years);
 		
+		//SandBoxing TreeSet
+		// Creating a TreeSet list and adding elements to it
+		TreeSet<String> names = new TreeSet<String>();
+		names.add("Deborah");
+		names.add("Cuellar");
+		names.add("Barrios");
+		names.add("Analia");
+						
+		System.out.println("9- This is a TreeSet list: "+names);
+				
+		//It doesn't show duplicate elements
+		//TreeSet does not preserve the insertion order of elements but 
+		//elements are sorted by keys in an ascending way
+				
+		// Removing elements
+		names.remove("Analia");
+		System.out.println("10- The list after removing Analia is: "+names);
 		
+		// Look for a specific element
+		if (names.contains("Deborah")) {
+			System.out.println("11- Yes, Deborah is in the list");
+			}
+				else {
+					System.out.println("11- No, Deborah is not in the list");
+				
+					}
 		
+		// Ordering the list in descending order using the descendingIterator
+		Iterator<String>
+			iterator = names.descendingIterator();
+		System.out.println("12- This is the list ordered using the descendingIterator method: ");
 		
+		while (iterator.hasNext()) {
+			System.out.println(iterator.next());
+		}
 		
 		
 		
