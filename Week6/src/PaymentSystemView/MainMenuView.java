@@ -73,19 +73,16 @@ import Hibernate.*;
 	//Returns: none
 	//============================================================================
 	 // create a scanner object
-	    private static Scanner keyboard = new Scanner(System.in);
-	    
-	    // get reference to the system object and the PaymentSysGS
-	    private static System theSystem = MainPaymentSys.getTheSystem();
+	   private static Scanner keyboard = new Scanner(System.in);
 	    
 	    
 	    public static void createNewHouse() { 
 	    	
 	    //Display the Banner Page.
 	    System.out.println("\nThe purpose of this app is to help you keep a database"  
-	            + " with your employees schedule and payments.\n\n You will be able to" 
+	            + " with your employees schedule and payments.\nYou will be able to" 
 	            + " add new houses, update excisting houses, delete houses, list all the\n" 
-	            + " existing houses and automatically calculate the payment of all your employees");
+	            + " existing houses and automatically calculate the payment of all your employees\n");
 	    
 	    String newName;
 	    int paymentYamilka;
@@ -93,21 +90,21 @@ import Hibernate.*;
 	    
 	    //Prompt to introduce the information for the new house
 	    
-	    System.out.println("\nPlease type the name of the first house: ");
+	    System.out.println("\nPlease type the name of the first house:");
 	    newName = keyboard.nextLine();
 	    
 	    //Prompt to introduce the payment for Yamilka
 	    
-	    System.out.println("\nPlease type the payment for Yamilka: ");
+	    System.out.println("\nPlease type the payment for Yamilka:");
 	    paymentYamilka = keyboard.nextInt();
 	    
 	    //Prompt to introduce the payment for Marisela
 	    
-	    System.out.println("\nPlease type the payment for Marisela: ");
+	    System.out.println("\nPlease type the payment for Marisela:");
 	    paymentMarisela = keyboard.nextInt();
 	    
-	    AddingObjects.PaymentRecord1(newName, paymentYamilka, paymentMarisela, null);
-	    System.out.println("\nThe new house was created succesfully");
+	    PaymentSysControl.createDatabase(newName);
+	    System.out.println("\nThe new house has the name:" + newName);
 	    
 	    }
 	

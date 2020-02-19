@@ -1,5 +1,6 @@
 package Hibernate;
 
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -17,38 +18,64 @@ public class AddingObjects {
 									.addAnnotatedClass(PaymentRecord1.class)
 									.buildSessionFactory();
 			
-			// create session
-			//Session session = factory.getCurrentSession();
-			
+//			 create session
+//			 Session session = factory.getCurrentSession();
+//			
 			// You need to add the catch exception in the future 
 			
+			//reference to a System object
+			private static System theSystem = null;
+			
+//			public static void createNewSystem(String pName) {
+//				//creating the system object and saving it in the main driver file
+//				theSystem = new System();
+//				Hibernate.setTheSystem(theSystem);
+//			
+//			
+//			
+//}
 			
 			
+//			public static void createPaymentSysGS() {
+//				PaymentSysGS paymentSysGS = new PaymentSysGS();
+//				
+//				paymentSysGS.setNewName();
+//				
+//				
+//			}
 			
+			
+			public static String createDatabase(String newName) {
+								
+				
+				if(newName=="Maria") {
+				
+				}
 			// createNewHouse method that will add a new house to the data base.			
+				return newName;
 					
-			public static PaymentRecord1 PaymentRecord1(String newName, int paymentYamilka, int paymentMarisela, PaymentSysGS paymentSysGS) {
-				
-//				String name = null;
-//				int salaryYamilka = 0;
-//				int salaryMarisela = 0;
-				
-				// create session
-				Session session = factory.getCurrentSession();
-				
-				PaymentRecord1 house14 = new PaymentRecord1(newName, paymentYamilka, paymentMarisela);
-			
-				// start a transaction
-				session.beginTransaction();
-				
-				// save the student object
-				session.save(house14);
-				
-				// commit transaction
-				session.getTransaction().commit();
-				return house14;
-				
-				
+//			public static PaymentRecord1 PaymentRecord1(String newName, int paymentYamilka, int paymentMarisela, PaymentSysGS paymentSysGS) {
+//				
+////				String name = null;
+////				int salaryYamilka = 0;
+////				int salaryMarisela = 0;
+//				
+//				// create session
+//				Session session = factory.getCurrentSession();
+//				
+//				PaymentRecord1 house14 = new PaymentRecord1(newName, paymentYamilka, paymentMarisela);
+//			
+//				// start a transaction
+//				session.beginTransaction();
+//				
+//				// save the student object
+//				session.save(house14);
+//				
+//				// commit transaction
+//				session.getTransaction().commit();
+//				return house14;
+//				
+//				
 			}
 			
 			//finally {
