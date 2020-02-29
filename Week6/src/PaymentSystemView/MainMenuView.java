@@ -1,9 +1,15 @@
 package PaymentSystemView;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Scanner;
 
-import PaymentSystemControl.MainPaymentSys;
-import PaymentSystemGetSet.PaymentSysGS;
+import com.mysql.cj.xdevapi.Statement;
+
+import PaymentSystemControl.*;
+//import PaymentSystemGetSet.PaymentSysGS;
+import PaymentSystemModel.PaymentSystemObjects;
 import Hibernate.*;
 // The MainMenuView class - this is a child class 
 // its going to inherite objects from the MainMenu class part of the view layer
@@ -84,29 +90,49 @@ import Hibernate.*;
 	            + " add new houses, update excisting houses, delete houses, list all the\n" 
 	            + " existing houses and automatically calculate the payment of all your employees\n");
 	    
-	    String newName;
-	    int paymentYamilka;
-	    int paymentMarisela;
+	    String houses;
+	    int salaryYamilka;
+	    int salaryMarisela;
 	    
+	   
 	    //Prompt to introduce the information for the new house
 	    
 	    System.out.println("\nPlease type the name of the first house:");
-	    newName = keyboard.nextLine();
+	    houses = keyboard.nextLine();
 	    
 	    //Prompt to introduce the payment for Yamilka
 	    
 	    System.out.println("\nPlease type the payment for Yamilka:");
-	    paymentYamilka = keyboard.nextInt();
+	    salaryYamilka = keyboard.nextInt();
 	    
 	    //Prompt to introduce the payment for Marisela
 	    
 	    System.out.println("\nPlease type the payment for Marisela:");
-	    paymentMarisela = keyboard.nextInt();
+	    salaryMarisela = keyboard.nextInt();
 	    
-	    PaymentSysControl.createDatabase(newName);
-	    System.out.println("\nThe new house has the name:" + newName);
+	    try {
 	    
+	    Class.forName("com.mysql.cj.jdbc.Driver");
+	    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/employee_sheet?useSSL=false&amp;serverTimezone=UTC");
+		
+		Statement st= (Statement) con.createStatement();
+		
+		((java.sql.Statement) st).executeUpdate("insert into payment_record value('"+houses+"', '"+salaryYamilka+"', '"+salaryMarisela+"'");
+//	    	System.out.println(houses);
+//	    	System.out.println(salaryYamilka);
+//	    	System.out.println(salaryMarisela);
+	    } catch (ClassNotFoundException e) {
+	    	e.printStackTrace();
+	    
+	    
+	    }catch (SQLException e) {
+	    	e.printStackTrace();
 	    }
+	    }
+	    
+	   
+	    
+	    
 	
 	    public static void updateNewHouse() {
 	    	

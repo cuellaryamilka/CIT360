@@ -1,9 +1,5 @@
 package PaymentSystemControl;
 
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-
-import Hibernate.PaymentRecord1;
 import PaymentSystemView.MainMenuView;
 
 public class MainPaymentSys {
