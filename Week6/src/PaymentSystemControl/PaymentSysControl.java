@@ -1,47 +1,60 @@
 package PaymentSystemControl;
 
-import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.util.Scanner;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import PaymentSystemModel.*;
-import PaymentSystemView.*;
-
-public class PaymentSysControl implements Serializable {
+public class PaymentSysControl {
 	
-	public static void main(String[] args) {
+	//private static Scanner scanner;
 
-					// create session factory
-					SessionFactory factory = new Configuration()
-											.configure("hibernatepractice.cfg.xml")
-											.addAnnotatedClass(PaymentSystemObjects.class)
-											.buildSessionFactory();
+	public static void main(String[] args) {
+					
+		// use the session object to save java object
+		
+		// create session factory
+		SessionFactory factory = new Configuration()
+								.configure("hibernatepractice.cfg.xml")
+								.addAnnotatedClass(PaymentSystemObjectsFinal.class)
+								.buildSessionFactory();
 				
-					
-					
-					// create session
-					Session session = factory.getCurrentSession();
-					
+			
+
+		Session session = factory.getCurrentSession();
+		
+		
+		
+				
+					try {
 						
-					// use the session object to save java object
 						
-						try {
-							
-						System.out.println("Creating new student object...");
-						PaymentSystemObjects house1 = new PaymentSystemObjects("Maria", 75, 85);
+						PaymentSystemView.paymentSystemView(); 
 						
-						// start a transaction
-						session.beginTransaction();
+						Scanner scanner;
+						scanner = new Scanner(System.in);
+//						
+						
+						
+					
+						String houses = scanner.nextLine();
+						int salaryYamilka = scanner.nextInt();
+						int salaryMarisela = scanner.nextInt();
+						
+						
+						PaymentSystemObjectsFinal createNewHouse = new PaymentSystemObjectsFinal();
+						
+						PaymentSystemObjectsFinal.setId(1);
+						createNewHouse.setHouses(houses);
+						createNewHouse.setSalaryYamilka(salaryYamilka);
+						createNewHouse.setSalaryMarisela(salaryMarisela);		
 								
+						// start transaction
+						session.beginTransaction();	
 						
 						// save the student object
-						System.out.println("Saving the student...");
-						session.save(house1);
+						session.save(createNewHouse);
 						
 						
 						
@@ -56,24 +69,6 @@ public class PaymentSysControl implements Serializable {
 						factory.close();
 						
 					}
-					
-	
-						
-	// add house to the database
-	
-//	private static createHouse() {
-//		// TODO Auto-generated method stub
-//		
-//		
-//		
-//	
-//			
-//		 //MainMenuView mainMenuView;
-//		 
-//			
-//		return st;
-//		
-//	}
 }
 
 }				
