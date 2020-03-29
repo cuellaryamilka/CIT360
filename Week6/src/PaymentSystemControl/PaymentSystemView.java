@@ -2,7 +2,7 @@ package PaymentSystemControl;
 
 public class PaymentSystemView {
 	
-	
+	// creating a PaymentSystemView so it can be called from another class
 	public static void paymentSystemView(){
 	
 	
